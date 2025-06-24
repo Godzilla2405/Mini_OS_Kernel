@@ -90,32 +90,50 @@ sudo apt update
 sudo apt install -y build-essential bison flex libgmp-dev libmpc-dev libmpfr-dev texinfo nasm qemu-system-x86 gcc-multilib dosfstools git mtools
 
 ### Step 2: Clone Repository
+```bash
+git clone <Godzilla2405/Mini_OS_Kernel>
+cd python-to-cpp-converter
+```
 
 ### Step 3: Build Toolchain 
+```bash
 ./build-toolchain.sh | tee build.log
+```
 
 ### Step 4: Build the OS
+```bash
 dd if=/dev/zero of=testfs.fat bs=1M count=512
 mkfs.vfat testfs.fat
 ./build.sh
+```
 
 ## ▶️ Running Simple-OS
 ### Option 1: Using QEMU Script
+```bash
 ./qemu.sh
+```
 
 ### Option 2: Option 2: Manual QEMU Launch
+```bash
 qemu-system-i386 -drive format=raw,file=bootable_kernel.bin -hda testfs.fat -serial stdio -m 512M -vga std -net nic,model=rtl8139 -net user
+```
 
 ## 🐞 Debugging
 ### Start QEMU in Debug Mode:
+```bash
 ./qemu.sh debug
+```
 
 ### Attach GDB:
+```bash
 gdb -ex "target remote localhost:1234" -ex "symbol-file sysroot/boot/simple_os.kernel"
+```
 
 ### Other Symbol Files for Debugging:
+```bash
 symbol-file bootloader/bootloader.elf
 add-symbol-file applications/shell/shell.elf
+```
 
 ## 💻 VSCode Setup
 
@@ -128,11 +146,13 @@ Native Debug
 ### Use built-in tasks to build/run/debug
 
 ## Key Files:
+```bash
 bootloader/arch/i386/bootloader.asm: Bootloader entry
 kernel/kernel.c: Kernel main function
 kernel/arch/i386/process/switch_kernel_context.asm: Context switching
 kernel/fat/fat32.c: FAT32 implementation
 applications/shell/main.c: Shell source
+```
 
 ## 🛣️ Development Roadmap
 ✅ Bootloader with ELF loading
