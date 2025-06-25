@@ -59,12 +59,6 @@ Simple-OS is a 32-bit educational operating system built from scratch for the x8
 - File utilities: `ls`, `cp`, `mv`, `rm`, `mkdir`  
 - Image viewer using stb_image
 
-### Networking
-- RTL8139 network card support  
-- Ethernet, IPv4, ICMP stack  
-- `ping` utility  
-- Basic socket API
-
 ---
 
 ## 🖥️ System Requirements
