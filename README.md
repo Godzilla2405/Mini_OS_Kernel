@@ -1,4 +1,4 @@
-# Simple-OS: A Self-Hosting x86-32 Hobby Operating System
+# Mini-OS: A Self-Hosting x86-32 Hobby Operating System
 
 **Developers:**  
 - Mayank Mahtolia – mahtoliamayank404@gmail.com  
